@@ -38,7 +38,7 @@ jobs:
               git config --global gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers
           fi
       # Checkout main branch
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.base_ref }}
           # Checkout with ssh key to be able to push changes back to the branch
@@ -49,7 +49,7 @@ jobs:
       - run: yarn --version
       - run: npm --version
 
-      - run: lerna bootstrap # Runs `yarn install` and prepare all the packages in this monorepo for the build
+      - run: yarn install # install dependencies
       - run: yarn run all #build
       - run: yarn run api-ref #generate /docs
       # Commit /docs folder back to the main branch. GitHub then deploys it automatically to GitHub pages

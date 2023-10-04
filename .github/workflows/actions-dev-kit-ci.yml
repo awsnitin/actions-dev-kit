@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           # Target branch of the pull request
           # Source https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
@@ -26,8 +26,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm install --global lerna yarn #install dependencies
-      - run: lerna bootstrap #prepare packages to be built
+      - run: npm install --global lerna yarn #install global dependencies
+      - run: yarn install #install and link depdendencies
       - run: ./build.sh #build
       - run: yarn run api-ref #test generate /docs
       - run: yarn run api-ref-pre-release #test generate /pre-release-docs
@@ -36,11 +36,11 @@ jobs:
   secret-scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: TruffleHog OSS
-        uses: trufflesecurity/trufflehog@v3.34.0
+        uses: trufflesecurity/trufflehog@v3.59.0
         with:
           path: ./
           # Target branch of the pull request
@@ -58,7 +58,7 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           # Target branch of the pull request
           # Source https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
