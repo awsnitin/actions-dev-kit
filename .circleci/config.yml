@@ -15,7 +15,7 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Run tests with Jest
-          command: yarn test
+          command: yarn run test-all
       - store_test_results:
           path: ./test-results/
   build-node:
