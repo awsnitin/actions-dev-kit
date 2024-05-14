@@ -14,6 +14,9 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
+          name: Install lerna
+          command: yarn install -g lerna
+      - run:
           name: Run tests with Jest
           command: yarn run test-all
       - store_test_results:
