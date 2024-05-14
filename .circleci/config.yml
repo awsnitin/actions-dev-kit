@@ -15,7 +15,7 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Run tests with Jest
-          command: ./node_modules/.bin/jest --ci --runInBand --reporters=default --reporters=jest-junit
+          command: yarn test
       - store_test_results:
           path: ./test-results/
   build-node:
