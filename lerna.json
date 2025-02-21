@@ -5,10 +5,10 @@
     "packages/*",
     "packages/codecatalyst-entities/*"
   ],
-  "version": "1.0.20",
+  "version": "1.0.4",
   "command": {
     "version": {
-      "allowBranch": "main",
+      "allowBranch": "feature-test-workflows",
       "conventionalCommits": true,
       "exact": true,
       "message": "chore(release): %s"
