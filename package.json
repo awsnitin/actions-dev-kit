@@ -28,7 +28,7 @@
     "api-ref": "typedoc ",
     "api-ref-pre-release": "typedoc --out pre-release-docs ",
     "generate-attributions": "ts-node ./scripts/generate-attributions",
-    "delete-remote-tags": "./scripts/delete-remote-tags.sh"
+    "set-version": "lerna version --no-push --no-git-tag-version"
   },
   "workspaces": {
     "packages": [
@@ -56,5 +56,8 @@
     "json5": "^2.2.2",
     "jsonwebtoken": "^9.0.0",
     "tsconfig-paths": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
