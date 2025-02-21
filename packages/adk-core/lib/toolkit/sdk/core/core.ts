@@ -38,7 +38,7 @@ export function getEnvironmentVariable(inputVar: string) {
 /**
 * Sets the output value for the action output parameter.
 *
-* @param varName The name of the environment variable. The variable must match the ^[A-Za-z0-9][A-Za-z0-9\-_]{1,30}[A-Za-z0-9]$ pattern.
+* @param varName The name of the environment variable. The variable must match the ^[A-Za-z0-9@\-_]+$ pattern.
 * @param varValue The fully resolved value of the output variable.
 *
 * @return The result of running `echo ${varName}`.
@@ -61,7 +61,7 @@ export function command(cmd: string,
     sanitizeInput: boolean = true,
     disableStdInput: boolean = true,
     args?: string[]) {
-    return runCommand(cmd, sanitizeInput, disableStdInput, args);
+    return runCommand(cmd, sanitizeInput, disableStdInput && !cmd.includes(' | '), args);
 }
 
 /**
