@@ -3,7 +3,7 @@
   "private": true,
   "devDependencies": {
     "@tsconfig/node12": "^1.0.2",
-    "@types/jest": "^27.4.1",
+    "@types/jest": "^207.4.1",
     "@types/node": "^17.0.22",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
